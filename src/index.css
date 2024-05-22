@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "after";
+  src: url("./assets/HU날쌘홍차왕자130.ttf");
+}
