@@ -20,18 +20,9 @@ const testData = [
     deadline: "2024년 7월 18일",
     dday: "1226",
   },
+
   {
     id: 1,
-    isDone: false,
-    content: "아이스크림 먹기",
-    image: icecream,
-    heart: "🖤🖤🖤🖤🤍",
-    date: "2024.05.20",
-    deadline: "2024년 5월 23일",
-    dday: "없음",
-  },
-  {
-    id: 2,
     isDone: false,
     content: "강아지 산책시키기",
     image: doggy,
@@ -39,6 +30,16 @@ const testData = [
     date: new Date().getTime(),
     deadline: "2024년 5월 23일",
     dday: "0",
+  },
+  {
+    id: 2,
+    isDone: false,
+    content: "아이스크림 먹기 Thx JH",
+    image: icecream,
+    heart: "🖤🖤🖤🖤🤍",
+    date: "2024.05.20",
+    deadline: "2024년 5월 23일",
+    dday: "없음",
   },
 ];
 function reducer(state, action) {
