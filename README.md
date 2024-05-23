@@ -17,7 +17,8 @@
 
 ## 🎈 서비스 기능
 #### 메인 화면
-![main](readme_assets/t_main.png)
+![image](https://github.com/soyoon26/ToDoList/assets/122415737/ed3b74af-bd53-4df0-8502-f54c7319838e)
+
 
 
 
