@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
 import { useMemo } from "react";
 const List = ({ todos, onUpdate, onDelete }) => {
   console.log(todos);
+  const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+      return () => {
+        clearTimeout(timer);
+      }; //value 변경 시점에 clearTimeout
+    }, [value]);
+    return debouncedValue;
+  };
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
   };
+  const timesearch = useDebounce(search, 200);
   const getFilteredData = () => {
     if (search === "") {
       return todos;
     }
     return todos.filter((todo) =>
-      todo.content.toLowerCase().includes(search.toLowerCase())
+      todo.content.toLowerCase().includes(timesearch.toLowerCase())
     );
   };
 
