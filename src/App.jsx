@@ -93,7 +93,7 @@ function App() {
   return (
     <div className="font-['cinema'] bg-bgColor h-full w-screen flex flex-col items-center ">
       <img className="mt-10 mb-8 w-1/3" src={todoLogo} />
-      <div className="mb-4">I love you dude, let it rip.</div>
+      <div className="mb-4">I love you dude, Let it rip.</div>
       <div className="w-full h-px bg-black"></div>
       <div className="w-full mt-1 h-px bg-black"></div>
       <Header />
