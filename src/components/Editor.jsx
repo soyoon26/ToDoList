@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
+import potato from "../assets/potato.png";
 const Editor = ({ onCreate }) => {
   const [content, setContent] = useState("");
-  const [heart, setHeart] = useState("");
-
+  const [heart, setHeart] = useState("없음");
+  const [image, setImage] = useState(potato);
   const inputRef = useRef();
 
   const onChangeContent = (e) => {
@@ -14,14 +15,28 @@ const Editor = ({ onCreate }) => {
       onSubmit();
     }
   };
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0]; // 첫 번째 파일 선택
+    const reader = new FileReader(); // 파일을 읽기 위한 FileReader 객체 생성
+
+    reader.onload = () => {
+      // 파일을 읽은 후 실행할 작업
+      setImage(reader.result); // 이미지를 상태에 저장하여 화면에 표시
+    };
+
+    // 파일을 읽기 시작
+    reader.readAsDataURL(selectedFile);
+    console.log(image);
+  };
   const onSubmit = () => {
     if (content === "") {
       inputRef.current.focus();
       return; //비어있으면 입력란에 포커스
     }
-    onCreate(content, heart);
+    onCreate(content, heart, image);
     setContent("");
     setHeart("");
+    setImage("");
   };
 
   const handleChange = (event) => {
@@ -37,16 +52,19 @@ const Editor = ({ onCreate }) => {
         onChange={onChangeContent}
         onKeyDown={onKeydown}
       ></input>
-      <input type="file" accept="image/*" />
+      <input
+        className="h-12 w-1/3 p-2"
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+      />
       <select
         id="options"
         className="p-2 ml-1 border border-gray-300 rounded"
         value={heart}
         onChange={handleChange}
       >
-        <option value="" disabled>
-          중요도를 선택하세요
-        </option>
+        <option value="">중요도를 선택하세요</option>
         <option value="🖤🤍🤍🤍🤍">🖤🤍🤍🤍🤍</option>
         <option value="🖤🖤🤍🤍🤍">🖤🖤🤍🤍🤍</option>
         <option value="🖤🖤🖤🤍🤍">🖤🖤🖤🤍🤍</option>

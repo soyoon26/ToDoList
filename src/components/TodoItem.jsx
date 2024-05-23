@@ -1,4 +1,13 @@
-const TodoItem = ({ id, isDone, content, heart, date, onUpdate, onDelete }) => {
+const TodoItem = ({
+  id,
+  isDone,
+  content,
+  heart,
+  image,
+  date,
+  onUpdate,
+  onDelete,
+}) => {
   const onChangeCheckBox = () => {
     console.log(id);
     onUpdate(id);
@@ -15,9 +24,10 @@ const TodoItem = ({ id, isDone, content, heart, date, onUpdate, onDelete }) => {
           checked={isDone}
           type="checkbox"
         />
-        <div className="mt-4 ml-2 text-2xl font-semibold ">{content}</div>
+        <img src={image} style={{ maxWidth: "100%", maxHeight: "200px" }}></img>
       </div>
       <div className="ml-10 pt-2">
+        <div className="mt-4 ml-2 text-2xl font-semibold ">{content}</div>
         <div className=" text-gray-500">중요도: {heart}</div>
         <div className="date mb-3 text-gray-500">
           추가일: {new Date(date).toLocaleDateString()}

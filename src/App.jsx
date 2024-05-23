@@ -47,7 +47,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, testData);
   const idRef = useRef(3);
 
-  const onCreate = (content, heart) => {
+  const onCreate = (content, heart, image) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -55,6 +55,7 @@ function App() {
         isDone: false,
         content: content,
         heart: heart,
+        image: image,
         date: new Date().getTime(),
       },
     });
@@ -70,12 +71,12 @@ function App() {
   return (
     <div className="font-['cinema'] bg-bgColor h-full w-screen flex flex-col items-center ">
       <img className="mt-10 mb-10 w-1/3" src={todoLogo} />
+      <div className="mb-5">I love you dude, let it lip.</div>
       <div className="w-full h-px bg-black"></div>
       <div className="w-full mt-1 h-px bg-black"></div>
       <Header />
       <Editor onCreate={onCreate} />
       <div className="w-4/5 mt-1 h-px bg-stone-700"></div>
-
       <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
       <Footer />
     </div>
