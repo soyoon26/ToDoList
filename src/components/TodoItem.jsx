@@ -12,7 +12,6 @@ const TodoItem = ({
   todos,
   dday,
 }) => {
-  console.log(dday, "??");
   const [line, setLine] = useState(false);
   const onChangeCheckBox = () => {
     onUpdate(id);
@@ -26,16 +25,20 @@ const TodoItem = ({
     <div className="flex w-full mt-5 mb-5 p-4 bg-white rounded">
       <div className="flex">
         <input
-          className="ml-2"
+          className="ml-2 w-5"
           onChange={onChangeCheckBox}
           checked={isDone}
           type="checkbox"
         />
-        <img src={image} style={{ maxWidth: "100%", maxHeight: "200px" }}></img>
+        <img
+          className="ml-5"
+          src={image}
+          style={{ maxWidth: "100%", maxHeight: "200px" }}
+        ></img>
       </div>
       <div className="ml-10 pt-2">
         <div
-          className={`mt-4 ml-2 text-2xl font-semibold ${
+          className={`mt-4 mb-10 ml-2 text-2xl font-semibold ${
             line ? "line-through" : ""
           }`}
         >
@@ -45,14 +48,16 @@ const TodoItem = ({
         <div className=" text-gray-500">
           추가일: {new Date(date).toLocaleDateString()}
         </div>
-        <div className="text-gray-500">D-DAY: {dday}</div>
+        <div className="text-gray-500 ml-1">D-DAY: {dday}</div>
       </div>
-      <button
-        className="bg-black  ml-auto w-20 h-20 text-white rounded shadow-md p-1"
-        onClick={onClickDeleteButton}
-      >
-        삭제
-      </button>
+      <div className=" flex ml-auto items-center">
+        <button
+          className="bg-black  ml-auto w-20 h-20 text-white rounded shadow-md p-1"
+          onClick={onClickDeleteButton}
+        >
+          삭제
+        </button>
+      </div>
     </div>
   );
 };

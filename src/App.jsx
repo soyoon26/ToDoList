@@ -6,26 +6,29 @@ import List from "./components/List";
 import Footer from "./components/Footer";
 import todoLogo from "./assets/todoLogo.png";
 import doggy from "./assets/doggy.jpg";
+import icecream from "./assets/icecream.jpg";
+import phonecase from "./assets/case.jpg";
 const testData = [
   {
     id: 0,
     isDone: false,
-    content: "React 공부하기",
-    image: "",
-    heart: "🖤🖤🖤🖤🤍",
+    content: "폰 케이스 사기(buy)",
+    image: phonecase,
+    heart: "🖤🖤🤍🤍🤍",
+
     date: "2024.05.19",
     deadline: "2024년 7월 18일",
-    dday: "",
+    dday: "1226",
   },
   {
     id: 1,
     isDone: false,
-    content: "달리기하기",
-    image: "",
-    heart: "🖤🖤🤍🤍🤍",
+    content: "아이스크림 먹기",
+    image: icecream,
+    heart: "🖤🖤🖤🖤🤍",
     date: "2024.05.20",
     deadline: "2024년 5월 23일",
-    dday: "",
+    dday: "없음",
   },
   {
     id: 2,

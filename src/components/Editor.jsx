@@ -11,7 +11,7 @@ const Editor = ({ onCreate }) => {
   const [image, setImage] = useState(potato);
   const inputRef = useRef();
   const [deadline, setDeadline] = useState("기간");
-  const [dday, setDday] = useState();
+  const [dday, setDday] = useState("없음");
   const onChangeContent = (e) => {
     setContent(e.target.value);
   };
@@ -46,10 +46,10 @@ const Editor = ({ onCreate }) => {
     }
     onCreate(content, heart, deadline, image, dday);
     setContent("");
-    setHeart("");
+    setHeart("없음");
     setImage(potato);
     setDeadline("기간");
-    setDday("");
+    setDday("없음");
   };
 
   const handleChange = (event) => {
