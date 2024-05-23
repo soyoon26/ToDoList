@@ -68,7 +68,7 @@ function App() {
   };
 
   return (
-    <div className="font-['after'] bg-bgColor h-full w-screen flex flex-col items-center ">
+    <div className="font-['cinema'] bg-bgColor h-full w-screen flex flex-col items-center ">
       <img className="mt-10 mb-10 w-1/3" src={todoLogo} />
       <div className="w-full h-px bg-black"></div>
       <div className="w-full mt-1 h-px bg-black"></div>

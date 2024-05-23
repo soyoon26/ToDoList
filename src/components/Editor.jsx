@@ -37,7 +37,7 @@ const Editor = ({ onCreate }) => {
         onChange={onChangeContent}
         onKeyDown={onKeydown}
       ></input>
-
+      <input type="file" accept="image/*" />
       <select
         id="options"
         className="p-2 ml-1 border border-gray-300 rounded"

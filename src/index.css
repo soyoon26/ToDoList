@@ -6,3 +6,8 @@
   font-family: "after";
   src: url("./assets/HU날쌘홍차왕자130.ttf");
 }
+
+@font-face {
+  font-family: "cinema";
+  src: url("./assets/a시네마M.otf");
+}
