@@ -1,16 +1,18 @@
 import { useState } from "react";
-
 const TodoItem = ({
   id,
   isDone,
   content,
   heart,
+  deadline,
   image,
   date,
   onUpdate,
   onDelete,
   todos,
+  dday,
 }) => {
+  console.log(dday, "??");
   const [line, setLine] = useState(false);
   const onChangeCheckBox = () => {
     onUpdate(id);
@@ -40,12 +42,13 @@ const TodoItem = ({
           {content}
         </div>
         <div className=" text-gray-500">중요도: {heart}</div>
-        <div className="date mb-3 text-gray-500">
+        <div className=" text-gray-500">
           추가일: {new Date(date).toLocaleDateString()}
         </div>
+        <div className="text-gray-500">D-DAY: {dday}</div>
       </div>
       <button
-        className="bg-black ml-auto w-20 text-white rounded shadow-md p-1"
+        className="bg-black  ml-auto w-20 h-20 text-white rounded shadow-md p-1"
         onClick={onClickDeleteButton}
       >
         삭제

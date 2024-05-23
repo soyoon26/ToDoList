@@ -10,7 +10,8 @@ const Editor = ({ onCreate }) => {
   const [heart, setHeart] = useState("없음");
   const [image, setImage] = useState(potato);
   const inputRef = useRef();
-
+  const [deadline, setDeadline] = useState("기간");
+  const [dday, setDday] = useState();
   const onChangeContent = (e) => {
     setContent(e.target.value);
   };
@@ -43,14 +44,22 @@ const Editor = ({ onCreate }) => {
       inputRef.current.focus();
       return; //비어있으면 입력란에 포커스
     }
-    onCreate(content, heart, image);
+    onCreate(content, heart, deadline, image, dday);
     setContent("");
     setHeart("");
-    setImage("");
+    setImage(potato);
+    setDeadline("기간");
+    setDday("");
   };
 
   const handleChange = (event) => {
     setHeart(event.target.value);
+  };
+  const handle = (event) => {
+    const date = moment(event).format("YYYY년 MM월 DD일");
+    const days = event.getTime() - new Date().getTime();
+    setDeadline(date);
+    setDday(Math.ceil(days / (1000 * 3600 * 24)));
   };
   return (
     <div className="flex p-5 w-4/5">
@@ -62,15 +71,19 @@ const Editor = ({ onCreate }) => {
         onChange={onChangeContent}
         onKeyDown={onKeydown}
       ></input>
-      <DropdownButton onClick={handleToggle}>기간선택</DropdownButton>
-      {/* <button className="dropdown-toggle" onClick={toggleDropdown}>
-        기간
-      </button>
-      {isOpen && (
-        <div className="dropdown-menu">
-          <Calendar />
-        </div>
-      )} */}
+      <Dropdown className="ml-2 mt-1" onClick={handleToggle}>
+        <Dropdown.Toggle className="bg-red-400 border-bgColor">
+          {deadline}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Calendar
+            className="font-['cinema']"
+            onChange={handle}
+            formatDay={(locale, date) => moment(date).format("DD")}
+          />
+        </Dropdown.Menu>
+      </Dropdown>
+
       <input
         className="h-12 w-1/3 p-2"
         type="file"

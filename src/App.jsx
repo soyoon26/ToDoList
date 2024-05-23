@@ -5,6 +5,7 @@ import Editor from "./components/Editor";
 import List from "./components/List";
 import Footer from "./components/Footer";
 import todoLogo from "./assets/todoLogo.png";
+import doggy from "./assets/doggy.jpg";
 const testData = [
   {
     id: 0,
@@ -13,20 +14,28 @@ const testData = [
     image: "",
     heart: "🖤🖤🖤🖤🤍",
     date: "2024.05.19",
+    deadline: "2024년 7월 18일",
+    dday: "",
   },
   {
     id: 1,
     isDone: false,
     content: "달리기하기",
+    image: "",
     heart: "🖤🖤🤍🤍🤍",
     date: "2024.05.20",
+    deadline: "2024년 5월 23일",
+    dday: "",
   },
   {
     id: 2,
     isDone: false,
-    content: "강아지 산책 시키기",
+    content: "강아지 산책시키기",
+    image: doggy,
     heart: "🖤🖤🖤🖤🖤",
     date: new Date().getTime(),
+    deadline: "2024년 5월 23일",
+    dday: "0",
   },
 ];
 function reducer(state, action) {
@@ -54,7 +63,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, testData);
   const idRef = useRef(3);
 
-  const onCreate = (content, heart, image) => {
+  const onCreate = (content, heart, deadline, image, dday) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -62,8 +71,10 @@ function App() {
         isDone: false,
         content: content,
         heart: heart,
+        deadline: deadline,
         image: image,
         date: new Date().getTime(),
+        dday: dday,
       },
     });
   };
