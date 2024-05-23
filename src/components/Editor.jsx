@@ -1,6 +1,10 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
 import potato from "../assets/potato.png";
+import { DropdownButton, Dropdown } from "react-bootstrap";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import moment from "moment";
 const Editor = ({ onCreate }) => {
   const [content, setContent] = useState("");
   const [heart, setHeart] = useState("없음");
@@ -28,6 +32,12 @@ const Editor = ({ onCreate }) => {
     reader.readAsDataURL(selectedFile);
     console.log(image);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
   const onSubmit = () => {
     if (content === "") {
       inputRef.current.focus();
@@ -52,6 +62,15 @@ const Editor = ({ onCreate }) => {
         onChange={onChangeContent}
         onKeyDown={onKeydown}
       ></input>
+      <DropdownButton onClick={handleToggle}>기간선택</DropdownButton>
+      {/* <button className="dropdown-toggle" onClick={toggleDropdown}>
+        기간
+      </button>
+      {isOpen && (
+        <div className="dropdown-menu">
+          <Calendar />
+        </div>
+      )} */}
       <input
         className="h-12 w-1/3 p-2"
         type="file"

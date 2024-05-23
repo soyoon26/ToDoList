@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useRef, useState, useReducer } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
@@ -9,6 +10,7 @@ const testData = [
     id: 0,
     isDone: false,
     content: "React 공부하기",
+    image: "",
     heart: "🖤🖤🖤🖤🤍",
     date: "2024.05.19",
   },
@@ -32,7 +34,12 @@ function reducer(state, action) {
     case "CREATE":
       return [action.data, ...state];
     case "UPDATE":
-      console.log(action.targetID);
+      console.log(state, "ss");
+      const updatedItem = state.find((item) => item.id === action.targetID);
+      const updatedstate = state.filter((item) => item.id !== action.targetID);
+      updatedItem.isDone
+        ? (state = [updatedItem, ...updatedstate])
+        : (state = [...updatedstate, updatedItem]);
       return state.map((item) =>
         item.id === action.targetID ? { ...item, isDone: !item.isDone } : item
       );

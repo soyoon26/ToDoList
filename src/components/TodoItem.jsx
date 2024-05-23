@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const TodoItem = ({
   id,
   isDone,
@@ -7,10 +9,13 @@ const TodoItem = ({
   date,
   onUpdate,
   onDelete,
+  todos,
 }) => {
+  const [line, setLine] = useState(false);
   const onChangeCheckBox = () => {
-    console.log(id);
     onUpdate(id);
+    setLine(!line);
+    id += 100;
   };
   const onClickDeleteButton = () => {
     onDelete(id);
@@ -27,7 +32,13 @@ const TodoItem = ({
         <img src={image} style={{ maxWidth: "100%", maxHeight: "200px" }}></img>
       </div>
       <div className="ml-10 pt-2">
-        <div className="mt-4 ml-2 text-2xl font-semibold ">{content}</div>
+        <div
+          className={`mt-4 ml-2 text-2xl font-semibold ${
+            line ? "line-through" : ""
+          }`}
+        >
+          {content}
+        </div>
         <div className=" text-gray-500">중요도: {heart}</div>
         <div className="date mb-3 text-gray-500">
           추가일: {new Date(date).toLocaleDateString()}
