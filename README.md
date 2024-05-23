@@ -24,6 +24,7 @@
 ![main](readme_assets/add.gif)
 ```
 내용을 입력하고 사진을 추가할 수 있으며 기간과 중요도 설정이 가능합니다.
+기간을 설정할 경우 D-day가 나타납니다.
 ```
 ![main](readme_assets/no_img.gif)
 
