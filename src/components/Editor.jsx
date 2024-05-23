@@ -31,7 +31,6 @@ const Editor = ({ onCreate }) => {
 
     // 파일을 읽기 시작
     reader.readAsDataURL(selectedFile);
-    console.log(image);
   };
 
   const [isOpen, setIsOpen] = useState(false);
