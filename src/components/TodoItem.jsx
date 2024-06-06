@@ -31,6 +31,7 @@ const TodoItem = ({
           type="checkbox"
         />
         <img
+          aria-label={image}
           className="ml-5"
           src={image}
           style={{ maxWidth: "100%", maxHeight: "200px" }}
@@ -52,6 +53,7 @@ const TodoItem = ({
       </div>
       <div className=" flex ml-auto items-center">
         <button
+          aria-label="삭제 버튼"
           className="bg-black  ml-auto w-20 h-20 text-white rounded shadow-md p-1"
           onClick={onClickDeleteButton}
         >

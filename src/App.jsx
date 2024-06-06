@@ -92,7 +92,11 @@ function App() {
 
   return (
     <div className="font-['cinema'] bg-bgColor h-full w-screen flex flex-col items-center ">
-      <img className="mt-10 mb-8 w-1/3" src={todoLogo} />
+      <img
+        aria-label="ToDoList로고"
+        className="mt-10 mb-8 w-1/3"
+        src={todoLogo}
+      />
       <div className="mb-4">I love you dude, Let it rip.</div>
       <div className="w-full h-px bg-black"></div>
       <div className="w-full mt-1 h-px bg-black"></div>
@@ -100,7 +104,7 @@ function App() {
       <Editor onCreate={onCreate} />
       <div className="w-4/5 mt-1 h-px bg-stone-700"></div>
       <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
-      <Footer />
+      <Footer aira-label="저작권, 개발자 이상 표시" />
     </div>
   );
 }
