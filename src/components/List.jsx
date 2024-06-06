@@ -47,6 +47,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
           <div>notDone : {notDoneCount}</div>
         </div>
         <input
+          aria-label="검색어 입력창"
           className="h-12 w-full rounded-l mb-10"
           value={search}
           onChange={onChangeSearch}

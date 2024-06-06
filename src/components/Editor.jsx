@@ -63,6 +63,7 @@ const Editor = ({ onCreate }) => {
   return (
     <div className="flex p-5 w-4/5">
       <input
+        aria-label="새로운 할 일 입력창"
         className="w-full h-12 rounded shadow-md p-1"
         ref={inputRef}
         value={content}
